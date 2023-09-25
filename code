@@ -1,0 +1,35 @@
+int i ;
+int n = 100 ;
+
+void setup(){
+ for (i = 2; i < 10; i++ ){
+      pinMode(i , OUTPUT);
+    }
+  pinMode(A0 , INPUT);
+  }
+
+
+void activate( bool a1 ,bool a2 ,bool a4 ,bool a5 ,bool a6 ,bool a7 ,bool a9 ,bool a10 ){
+    digitalWrite(2 , a1);
+    digitalWrite(3 , a2);
+    digitalWrite(4 , a4);
+    digitalWrite(5 , a5);
+    digitalWrite(6 , a6);
+    digitalWrite(7 , a7);
+    digitalWrite(8 , a9);
+    digitalWrite(9 , a10);
+  }
+
+
+void loop(){
+      if (analogRead(A0)/100 < 1){activate(HIGH , HIGH , HIGH , HIGH , HIGH , HIGH ,HIGH , LOW);}
+      else if (analogRead(A0)/n >= 1 and analogRead(A0)/n < 2){activate(HIGH , LOW , LOW , HIGH , LOW , LOW ,HIGH , LOW);}
+      else if (analogRead(A0)/n >= 2 and analogRead(A0)/n < 3){activate(HIGH , HIGH , LOW , HIGH , HIGH , HIGH ,LOW , HIGH);}
+      else if (analogRead(A0)/n >= 3 and analogRead(A0)/n < 4){activate(LOW , HIGH , HIGH , HIGH , HIGH , HIGH ,LOW , HIGH);}
+      else if (analogRead(A0)/n >= 4 and analogRead(A0)/n < 5){activate(LOW , LOW , HIGH , HIGH , HIGH , LOW ,HIGH , HIGH);}
+      else if (analogRead(A0)/n >= 5 and analogRead(A0)/n < 6){activate(LOW , HIGH , HIGH , HIGH , LOW , HIGH ,HIGH , HIGH);}
+      else if (analogRead(A0)/n >= 6 and analogRead(A0)/n < 7){activate(HIGH , HIGH , HIGH , HIGH , LOW , HIGH ,HIGH , HIGH);}
+      else if (analogRead(A0)/n >= 7 and analogRead(A0)/n < 8){activate(LOW , LOW , HIGH , HIGH , HIGH , HIGH ,LOW , LOW);}
+      else if (analogRead(A0)/n >= 8 and analogRead(A0)/n < 9){activate(HIGH , HIGH , HIGH , HIGH , HIGH , HIGH ,HIGH , HIGH);}
+      else{activate(LOW , HIGH , HIGH , HIGH , HIGH , HIGH ,HIGH , HIGH);}
+  }
